@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<title>Encryption page</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+		<script type="text/javascript" src="sjcl.js"></script>
+		<script type="text/javascript">
+			//<!--
+			var pwField, dataField, outputDisplay;
+
+			function encrypt() {
+				var pw = pwField.value;
+				var pwConf = pwConfField.value;
+				if (pw != pwConf) {
+					window.alert("The password and confirm password fields do not match. Try retyping the password.");
+					return;
+				}
+				var data = dataField.value;
+				var result = sjcl.encrypt(pw, data);
+				outputDisplay.innerHTML = result;
+			}
+
+			function decrypt() {
+				var pw = pwField.value;
+				var data = dataField.value
+				var result;
+				try {
+					result = sjcl.decrypt(pw, data);
+					outputDisplay.innerHTML = result;
+				} catch (e) {
+					if (e instanceof sjcl.exception.corrupt) {
+						window.alert("Incorrect password.");
+					} else if (e instanceof sjcl.exception.invalid) {
+						window.alert("The input data is not valid. It should start and end with curly braces ('{' and '}').");
+					}
+				}
+			}
+			//-->
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="content">
+				<table class="spanning">
+					<tr>
+						<td colspan="3">
+							<textarea class="dataEntry" rows="4" id="dataField">Enter the text here.</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td class="passwordCell">
+							<label>Password:</label>
+							<input id="pwField" type="password" name="password"/>
+							<label>Confirm (encrypt only):</label>
+							<input id="pwConfField" type="password" name="passwordConf"/>
+						</td>
+						<td>
+							<button class="spanning" onclick="encrypt()">Encrypt</button>
+						</td>
+						<td>
+							<button class="spanning" onclick="decrypt()">Decrypt</button>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<p id="outputDisplay">
+								The result will appear here.
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//<!--
+			pwField = document.getElementById("pwField");
+			pwConfField = document.getElementById("pwConfField");
+			dataField = document.getElementById("dataField");
+			outputDisplay = document.getElementById("outputDisplay");
+			//-->
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+﻿body {
+	background-color:111111;
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+#container {
+	background-color:222222;
+	margin: 0 auto;
+	width: 900px;
+}
+#content {
+	padding: 0px 10px 10px;
+	text-align:left;
+}
+#copyright {
+	padding: 10px;
+	background-color:111111;
+	font-size:11px;
+}
+
+.spanning {
+	width:100%;
+}
+
+#outputDisplay {
+	word-wrap:break-word;
+	background-color:white;
+	color:black;
+	border:2px solid white;
+	border-radius:4px;
+	font-family:"Courier New",courier,serif;
+}
+
+textarea.dataEntry {
+	width:100%;
+	resize:vertical;
+}
+
+td.passwordCell {
+	width:66%;
+}
+
+/* Text Styles */
+p, li, label, div {
+	font-family:"Verdana",sans-serif;
+	color:EEEEEE;
+}
+
+h1, h2, h3 {
+	font-family:"Courier New",courier,serif;
+	color:00BB00;
+}
+#title {
+	margin-top:0px;
+}
