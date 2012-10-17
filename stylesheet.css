@@ -23,22 +23,21 @@
 	width:100%;
 }
 
-#outputDisplay {
-	word-wrap:break-word;
-	background-color:white;
-	color:black;
-	border:2px solid white;
-	border-radius:4px;
-	font-family:"Courier New",courier,serif;
-}
-
-textarea.dataEntry {
+textarea {
 	width:100%;
 	resize:vertical;
 }
 
+#outputDisplay {
+	background-color:white;
+}
+
+input.pwField {
+	width:150px;
+}
+
 td.passwordCell {
-	width:66%;
+	width:70%;
 }
 
 /* Text Styles */

@@ -5,7 +5,7 @@
 		<script type="text/javascript" src="sjcl.js"></script>
 		<script type="text/javascript">
 			//<!--
-			var pwField, dataField, outputDisplay;
+			var pwField, dataField, outputDisplay, encryptRB, decryptRB;
 
 			function encrypt() {
 				var pw = pwField.value;
@@ -16,7 +16,7 @@
 				}
 				var data = dataField.value;
 				var result = sjcl.encrypt(pw, data);
-				outputDisplay.innerHTML = result;
+				outputDisplay.value = result;
 			}
 
 			function decrypt() {
@@ -25,13 +25,45 @@
 				var result;
 				try {
 					result = sjcl.decrypt(pw, data);
-					outputDisplay.innerHTML = result;
+					outputDisplay.value = result;
 				} catch (e) {
 					if (e instanceof sjcl.exception.corrupt) {
 						window.alert("Incorrect password.");
 					} else if (e instanceof sjcl.exception.invalid) {
 						window.alert("The input data is not valid. It should start and end with curly braces ('{' and '}').");
 					}
+				}
+			}
+
+			// UI //
+
+			function showPWConfirm() {
+				pwConfLabel.style.display = 'inline';
+				pwConfField.style.display = 'inline';
+			}
+
+			function hidePWConfirm() {
+				pwConfLabel.style.display = 'none';
+				pwConfField.style.display = 'none';
+			}
+			
+			// Event Handlers //
+
+			function encryptRB_onclick() {
+				decryptRB.checked = false;
+				showPWConfirm();
+			}
+
+			function decryptRB_onclick() {
+				encryptRB.checked = false;
+				hidePWConfirm();
+			}
+
+			function button_onclick() {
+				if (encryptRB.checked) {
+					encrypt();
+				} else {
+					decrypt();
 				}
 			}
 			//-->
@@ -43,28 +75,31 @@
 				<table class="spanning">
 					<tr>
 						<td colspan="3">
-							<textarea class="dataEntry" rows="4" id="dataField">Enter the text here.</textarea>
-						</td>
-					</tr>
-					<tr>
-						<td class="passwordCell">
-							<label>Password:</label>
-							<input id="pwField" type="password" name="password"/>
-							<label>Confirm (encrypt only):</label>
-							<input id="pwConfField" type="password" name="passwordConf"/>
-						</td>
-						<td>
-							<button class="spanning" onclick="encrypt()">Encrypt</button>
-						</td>
-						<td>
-							<button class="spanning" onclick="decrypt()">Decrypt</button>
+							<textarea rows="4" id="dataField" placeholder="Enter the text here."></textarea>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="3">
-							<p id="outputDisplay">
-								The result will appear here.
-							</p>
+							<input id="encryptRB" type="radio" checked="true" onclick="encryptRB_onclick()"/>
+							<label>encrypt</label>
+							<input id="decryptRB" type="radio" onclick="decryptRB_onclick()"/>
+							<label>decrypt</label>
+						</td>
+					</tr>
+					<tr>
+						<td class="passwordCell" colspan="2">
+							<label>Password:</label>
+							<input class="pwField" id="pwField" type="password" name="password"/>
+							<label id="pwConfLabel">Confirm:<label>
+							<input class="pwField" id="pwConfField" type="password" name="passwordConf"/>
+						</td>
+						<td>
+							<button class="spanning" onclick="button_onclick()">Do it</button>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<textarea readonly id="outputDisplay" placeholder="The result will appear here."></textarea>
 						</td>
 					</tr>
 				</table>
@@ -72,9 +107,12 @@
 		</div>
 		<script type="text/javascript">
 			//<!--
-			pwField = document.getElementById("pwField");
-			pwConfField = document.getElementById("pwConfField");
-			dataField = document.getElementById("dataField");
+			pwField       = document.getElementById("pwField");
+			pwConfLabel   = document.getElementById("pwConfLabel");
+			pwConfField   = document.getElementById("pwConfField");
+			dataField     = document.getElementById("dataField");
+			encryptRB     = document.getElementById("encryptRB");
+			decryptRB     = document.getElementById("decryptRB");
 			outputDisplay = document.getElementById("outputDisplay");
 			//-->
 		</script>
