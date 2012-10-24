@@ -3,71 +3,7 @@
 		<title>Encryption page</title>
 		<link rel="stylesheet" type="text/css" href="stylesheet.css"/>
 		<script type="text/javascript" src="sjcl.js"></script>
-		<script type="text/javascript">
-			//<!--
-			var pwField, dataField, outputDisplay, encryptRB, decryptRB;
-
-			function encrypt() {
-				var pw = pwField.value;
-				var pwConf = pwConfField.value;
-				if (pw != pwConf) {
-					window.alert("The password and confirm password fields do not match. Try retyping the password.");
-					return;
-				}
-				var data = dataField.value;
-				var result = sjcl.encrypt(pw, data);
-				outputDisplay.value = result;
-			}
-
-			function decrypt() {
-				var pw = pwField.value;
-				var data = dataField.value
-				var result;
-				try {
-					result = sjcl.decrypt(pw, data);
-					outputDisplay.value = result;
-				} catch (e) {
-					if (e instanceof sjcl.exception.corrupt) {
-						window.alert("Incorrect password.");
-					} else if (e instanceof sjcl.exception.invalid) {
-						window.alert("The input data is not valid. It should start and end with curly braces ('{' and '}').");
-					}
-				}
-			}
-
-			// UI //
-
-			function showPWConfirm() {
-				pwConfLabel.style.display = 'inline';
-				pwConfField.style.display = 'inline';
-			}
-
-			function hidePWConfirm() {
-				pwConfLabel.style.display = 'none';
-				pwConfField.style.display = 'none';
-			}
-			
-			// Event Handlers //
-
-			function encryptRB_onclick() {
-				decryptRB.checked = false;
-				showPWConfirm();
-			}
-
-			function decryptRB_onclick() {
-				encryptRB.checked = false;
-				hidePWConfirm();
-			}
-
-			function button_onclick() {
-				if (encryptRB.checked) {
-					encrypt();
-				} else {
-					decrypt();
-				}
-			}
-			//-->
-		</script>
+		<script type="text/javascript" src="script.js"></script>
 	</head>
 	<body>
 		<div id="container">
@@ -89,12 +25,12 @@
 					<tr>
 						<td class="passwordCell" colspan="2">
 							<label>Password:</label>
-							<input class="pwField" id="pwField" type="password" name="password"/>
+							<input id="pwField" type="password" name="pw" onkeyup="checkPWMatch()"/>
 							<label id="pwConfLabel">Confirm:<label>
-							<input class="pwField" id="pwConfField" type="password" name="passwordConf"/>
+							<input id="pwConfField" type="password" name="pwConf" onkeyup="checkPWMatch()"/>
 						</td>
 						<td>
-							<button class="spanning" onclick="button_onclick()">Do it</button>
+							<button class="spanning" id="button" onclick="button_onclick()">Do it</button>
 						</td>
 					</tr>
 					<tr>
@@ -113,6 +49,7 @@
 			dataField     = document.getElementById("dataField");
 			encryptRB     = document.getElementById("encryptRB");
 			decryptRB     = document.getElementById("decryptRB");
+			button        = document.getElementById("button");
 			outputDisplay = document.getElementById("outputDisplay");
 			//-->
 		</script>

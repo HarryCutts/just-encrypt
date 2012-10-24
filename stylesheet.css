@@ -32,8 +32,16 @@ textarea {
 	background-color:white;
 }
 
-input.pwField {
+input[type=password] {
 	width:150px;
+}
+
+input.valid {
+	background-color:lightgreen;
+}
+
+input.invalid {
+	background-color:#FF8080;
 }
 
 td.passwordCell {
