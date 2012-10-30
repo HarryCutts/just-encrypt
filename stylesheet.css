@@ -1,4 +1,6 @@
-﻿body {
+﻿/* Page */
+
+body {
 	background-color:111111;
 	margin:0;
 	padding:0;
@@ -14,6 +16,7 @@
 	text-align:left;
 }
 #copyright {
+	font-family:"Courier New",courier,serif;
 	padding: 10px;
 	background-color:111111;
 	font-size:11px;
@@ -22,6 +25,33 @@
 .spanning {
 	width:100%;
 }
+
+/* Columns */
+
+.columnContainer {
+	float:left;
+	width:100%;
+}
+
+.column {
+	width:33%;
+	float:left;
+	position:relative;
+}
+
+.columnInner {
+	padding:5px;
+}
+
+#col2 {
+	background-color:333333;
+}
+
+.columnHeader {
+	margin-top:0px;
+}
+
+/* "Form" */
 
 textarea {
 	width:100%;
@@ -49,15 +79,38 @@ td.passwordCell {
 }
 
 /* Text Styles */
-p, li, label, div {
+p, li, div {
 	font-family:"Verdana",sans-serif;
-	color:EEEEEE;
+	color:DDDDDD;
+}
+
+b {
+	color:FFFFFF;
+}
+
+label {
+	font-family:"Courier New",courier,serif;
+	font-weight:bold;
+	color:DDDDDD;
 }
 
 h1, h2, h3 {
 	font-family:"Courier New",courier,serif;
-	color:00BB00;
+	color:00AA00;
 }
-#title {
-	margin-top:0px;
+
+.title {
+	font-family:"Courier New",courier,serif;
+	font-size:32px;
+	font-weight:bold;
+	color:00AA00;
+}
+
+a:not([name]) { /* Any link that's not an anchor.*/
+    font-family:"Verdana",sans-serif;
+    color:00BB00;
+}
+.subtitle {
+	font-family:"Courier New",courier,serif;
+	color:00BB00;
 }

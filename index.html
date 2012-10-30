@@ -8,6 +8,8 @@
 	<body>
 		<div id="container">
 			<div id="content">
+				<span class="title">Just Encrypt</span>
+				<span class="subtitle">Text, password, click. Done.</span>
 				<table class="spanning">
 					<tr>
 						<td colspan="3">
@@ -35,10 +37,50 @@
 					</tr>
 					<tr>
 						<td colspan="3">
-							<textarea readonly id="outputDisplay" placeholder="The result will appear here."></textarea>
+							<textarea readonly rows="4" id="outputDisplay" placeholder="The encrypted or decrypted text will appear here."></textarea>
 						</td>
 					</tr>
 				</table>
+				<div class="columnContainer">
+					<div class="column" id="col1">
+						<div class="columnInner">
+							<h3 class="columnHeader">What is this?</h3>
+							<p> This page encrypts or decrypts text in your browser. I wrote it because of the lack of simple, easy to use encryption programs on the Internet.
+							</p>
+							<p> To encrypt, type your message into the text box, enter a password (twice) and click the button. The encrypted text will appear in the lower box.
+							</p>
+							<p> To decrypt, paste the encrypted text into the top box, select 'decrypt', enter the password and click the button.
+							</p>
+							<p> If you're wanting to send it to someone, either choose a password that you both know, or send an obscure password <b>by a different method</b> (for example, send the encrypted text via the Internet and the password by SMS or phone call).
+							</p>
+						</div>
+					</div>
+					<div class="column" id="col2">
+						<div class="columnInner">
+							<h3 class="columnHeader">Why should I trust it?</h3>
+							<p> Good question. </p>
+							<p> You can trust it because <b>the encryption happens on your computer.</b> This means that neither the text or the password is actually sent over the Internet, only the program to encrypt or decrypt them.
+							</p>
+							<p> The weakest part of the system is the password. Choose a good one, and don't send it by the same method as the encrypted data. Preferably, send one over the Internet and the other through another method, e.g. by SMS or phone call. This should be secure enough, unless you're being followed by the Mafia or CIA, etc., in which case you probably want to use <a href="http://aplawrence.com/Basics/gpg.html">GnuPG</a>.
+							</p>
+							<p> But don't just take my word for it. If you know HTML and/or JavaScript, you can find the source code on GitHub<!-- TODO: Put on GitHub -->, as well as the source for <a href="https://github.com/bitwiseshiftleft/sjcl">the underlying library</a>.
+							</p>
+						</div>
+					</div>
+					<div class="column" id="col3">
+						<div class="columnInner">
+							<h3 class="columnHeader">How does it work?</h3>
+							<p> Really, this page is just a simple wrapper around <a href="http://crypto.stanford.edu/sjcl/">SJCL</a>, a JavaScript encryption library written at Stanford University that uses the <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a> encryption algorithm.
+							</p>
+							<p> JavaScript is the programming language that is run on webpages, so it can be interpretted and run without having to send input to the web server.
+							</p>
+						</div>
+					</div>
+				</div>
+				&nbsp;
+			</div>
+			<div id="copyright">
+				Copyright &copy; 2012 Harry Cutts. All rights reserved. <!-- TODO: Choose a license -->
 			</div>
 		</div>
 		<script type="text/javascript">
