@@ -17,8 +17,9 @@ body {
 }
 #copyright {
 	font-family:"Courier New",courier,serif;
-	padding: 10px;
+	padding: 12px;
 	background-color:111111;
+	color:00AA00;
 	font-size:11px;
 }
 
@@ -80,7 +81,7 @@ td.passwordCell {
 
 /* Text Styles */
 p, li, div {
-	font-family:"Verdana",sans-serif;
+	font-family:"Trebuchet",sans-serif;
 	color:DDDDDD;
 }
 
@@ -101,13 +102,13 @@ h1, h2, h3 {
 
 .title {
 	font-family:"Courier New",courier,serif;
-	font-size:32px;
+	font-size:28pt;
 	font-weight:bold;
 	color:00AA00;
 }
 
 a:not([name]) { /* Any link that's not an anchor.*/
-    font-family:"Verdana",sans-serif;
+    font-family:"Trebuchet",sans-serif;
     color:00BB00;
 }
 .subtitle {
