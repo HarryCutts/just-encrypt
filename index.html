@@ -30,37 +30,26 @@
 			<div id="content">
 				<span class="title">Just Encrypt</span>
 				<span class="subtitle">Text, password, click. Done.</span>
-				<table class="spanning">
-					<tr>
-						<td colspan="2">
-							<textarea rows="4" id="dataField" placeholder="Enter the text here."></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<input id="encryptRB" type="radio" checked="checked" onclick="encryptRB_onclick()">
-							<label>encrypt</label>
-							<input id="decryptRB" type="radio" onclick="decryptRB_onclick()">
-							<label>decrypt</label>
-						</td>
-					</tr>
-					<tr>
-						<td class="passwordCell">
-							<label>Password:</label>
-							<input id="pwField" type="password" name="pw" onkeyup="checkPWMatch()">
-							<label id="pwConfLabel">Confirm:</label>
-							<input id="pwConfField" type="password" name="pwConf" onkeyup="checkPWMatch()">
-						</td>
-						<td>
-							<button class="spanning" id="button" onclick="button_onclick()">Do it</button>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<textarea readonly rows="4" id="outputDisplay" placeholder="The encrypted or decrypted text will appear here."></textarea>
-						</td>
-					</tr>
-				</table>
+
+				<!-- "Form" -->
+				<textarea rows="4" id="dataField" placeholder="Enter the text here."></textarea>
+
+				<div id="opSelector">
+					<input id="encryptRB" type="radio" checked="checked" onclick="encryptRB_onclick()">
+					<label>encrypt</label>
+					<input id="decryptRB" type="radio" onclick="decryptRB_onclick()">
+					<label>decrypt</label>
+				</div>
+
+				<label>Password:</label>
+				<input id="pwField" type="password" name="pw" onkeyup="checkPWMatch()">
+				<label id="pwConfLabel">Confirm:</label>
+				<input id="pwConfField" type="password" name="pwConf" onkeyup="checkPWMatch()">
+				<button id="button" onclick="button_onclick()">Do it</button>
+
+				<textarea readonly rows="4" id="outputDisplay" placeholder="The encrypted or decrypted text will appear here."></textarea>
+
+				<!-- Descriptive text -->
 				<div class="columnContainer">
 					<div class="column" id="col1">
 						<div class="columnInner">

@@ -79,6 +79,10 @@ textarea {
 	background-color:white;
 }
 
+#opSelector {
+	text-align:center;
+}
+
 input[type=password] {
 	width:150px;
 }
@@ -91,8 +95,9 @@ input.invalid {
 	background-color:#FF8080;
 }
 
-td.passwordCell {
-	width:70%;
+#button {
+	float:right;
+	width:25%;
 }
 
 /* Text Styles */
