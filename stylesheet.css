@@ -17,13 +17,13 @@
 /* Page */
 
 body {
-	background-color:111111;
+	background-color:#111111;
 	margin:0;
 	padding:0;
 	text-align:center;
 }
 #container {
-	background-color:222222;
+	background-color:#222222;
 	margin: 0 auto;
 	width: 900px;
 }
@@ -34,8 +34,8 @@ body {
 #copyright {
 	font-family:"Courier New",courier,serif;
 	padding: 12px;
-	background-color:111111;
-	color:00AA00;
+	background-color:#111111;
+	color:#00AA00;
 	font-size:11px;
 }
 
@@ -61,7 +61,7 @@ body {
 }
 
 #col2 {
-	background-color:333333;
+	background-color:#333333;
 }
 
 .columnHeader {
@@ -98,36 +98,36 @@ td.passwordCell {
 /* Text Styles */
 p, li, div {
 	font-family:"Trebuchet",sans-serif;
-	color:DDDDDD;
+	color:#DDDDDD;
 }
 
 b {
-	color:FFFFFF;
+	color:#FFFFFF;
 }
 
 label {
 	font-family:"Courier New",courier,serif;
 	font-weight:bold;
-	color:DDDDDD;
+	color:#DDDDDD;
 }
 
 h1, h2, h3 {
 	font-family:"Courier New",courier,serif;
-	color:00AA00;
+	color:#00AA00;
 }
 
 .title {
 	font-family:"Courier New",courier,serif;
 	font-size:28pt;
 	font-weight:bold;
-	color:00AA00;
+	color:#00AA00;
 }
 
 a:not([name]) { /* Any link that's not an anchor.*/
     font-family:"Trebuchet",sans-serif;
-    color:00BB00;
+    color:#00BB00;
 }
 .subtitle {
 	font-family:"Courier New",courier,serif;
-	color:00BB00;
+	color:#00BB00;
 }
