@@ -62,7 +62,7 @@ function hidePWConfirm() {
 
 function checkPWMatch() {
 	var newClassName;
-	if (pwField.value == "" || pwConfField.value == "") {
+	if (pwField.value == "" || pwConfField.value == "" || decryptRB.checked) {
 		newClassName = "";
 	} else if (pwField.value == pwConfField.value) {
 		newClassName = "valid";
@@ -78,11 +78,13 @@ function checkPWMatch() {
 function encryptRB_onclick() {
 	decryptRB.checked = false;
 	showPWConfirm();
+	checkPWMatch();
 }
 
 function decryptRB_onclick() {
 	encryptRB.checked = false;
 	hidePWConfirm();
+	checkPWMatch();
 }
 
 function button_onclick() {
