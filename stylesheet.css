@@ -129,7 +129,6 @@ h1, h2, h3 {
 }
 
 a:not([name]) { /* Any link that's not an anchor.*/
-    font-family:"Trebuchet",sans-serif;
     color:#00BB00;
 }
 .subtitle {
