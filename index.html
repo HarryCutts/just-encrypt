@@ -49,6 +49,8 @@
 
 				<textarea readonly rows="4" id="outputDisplay" placeholder="The encrypted or decrypted text will appear here."></textarea>
 
+				<div id="plainTextDiv"><a id="plainTextLink" rel="nofollow">Open as plain text</a> (right click &gt; Save link as... to download.) </div>
+
 				<!-- Descriptive text -->
 				<div class="columnContainer">
 					<div class="column" id="col1">
@@ -102,6 +104,7 @@
 			decryptRB     = document.getElementById("decryptRB");
 			button        = document.getElementById("button");
 			outputDisplay = document.getElementById("outputDisplay");
+			plainTextLink = document.getElementById("plainTextLink");
 			//-->
 		</script>
 	</body>
