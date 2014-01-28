@@ -100,6 +100,12 @@ input.invalid {
 	width:25%;
 }
 
+#plainTextDiv {
+	text-align:right;
+	font-size:small;
+	padding-bottom:1em;
+}
+
 /* Text Styles */
 p, li, div {
 	font-family:"Trebuchet",sans-serif;
@@ -129,7 +135,6 @@ h1, h2, h3 {
 }
 
 a:not([name]) { /* Any link that's not an anchor.*/
-    font-family:"Trebuchet",sans-serif;
     color:#00BB00;
 }
 .subtitle {

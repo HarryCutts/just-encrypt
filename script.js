@@ -14,7 +14,7 @@
  * along with Just Encrypt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var pwField, dataField, outputDisplay, encryptRB, decryptRB, button;
+var pwField, dataField, outputDisplay, encryptRB, decryptRB, button, plainTextLink;
 
 function encrypt() {
 	var pw = pwField.value;
@@ -48,6 +48,7 @@ function decrypt() {
 
 function output(text) {
 	outputDisplay.value = text;
+	plainTextLink.href = "data:text/plain," + text
 }
 
 function showPWConfirm() {
